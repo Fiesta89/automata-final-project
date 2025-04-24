@@ -24,7 +24,7 @@ various real-world scenarios.
 ## How to Use
 1. Load and parse the password files using Python:
 ```python
-with open("generated_passwords.txt") as f:
+with open("varied_passwords.txt") as f:
     passwords = [line.strip() for line in f]
 ```
 
