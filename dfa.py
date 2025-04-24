@@ -28,12 +28,16 @@ def dfa_checker(password):
         print("Password must contain at least one special character.")
 
     if has_upper and has_lower and has_digit and has_special:
-        print("Password is valid.\n")
+        print("Password is valid.")
         return True
     else:
-        print("\n")
         return False
-    
 
-password = input("Enter a password: ")
-dfa_checker(password)   
+
+with open("varied_passwords.txt", "r") as file:
+    for line in file:
+        password = line.strip()
+        dfa_checker(password)
+        print(f"Password: {password}")
+        print("-" * 30)
+        print("\n")
