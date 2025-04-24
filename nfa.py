@@ -10,6 +10,9 @@ def has_digit(password):
 def has_special(password):
     return any(c in "!@#$%^&*()-_=+[]{}|;:',.<>?/" for c in password)
 
+def is_alphanumeric_or_special(password):
+    return all(c.isalnum() or c in "!@#$%^&*()-_=+[]{}|;:',.<>?/" for c in password)
+
 def is_long_enough(password):
     return len(password) >= 8
 
@@ -23,6 +26,8 @@ def nfa_checker(password):
         print("Password must contain at least one digit.")
     if not has_special(password):
         print("Password must contain at least one special characters.")
+    if not is_alphanumeric_or_special(password):
+        print("Password must contain only alphanumeric or special characters.")
     if not is_long_enough(password):
         print("Password must be at least 8 characters long.")
         
