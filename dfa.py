@@ -14,6 +14,9 @@ def dfa_checker(password):
             has_digit = True
         elif char in "!@#$%^&*()-_=+[]{}|;:',.<>?/":
             has_special = True
+        else:
+            print("Password contains invalid characters.")
+            return False
     
     if not has_upper:
         print("Password must contain at least one uppercase letter.")
