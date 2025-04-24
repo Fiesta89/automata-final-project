@@ -25,9 +25,10 @@ def dfa_checker(password):
         print("Password must contain at least one special character.")
 
     if has_upper and has_lower and has_digit and has_special:
-        print("Password is valid.")
+        print("Password is valid.\n")
         return True
     else:
+        print("\n")
         return False
     
 
