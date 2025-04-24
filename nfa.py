@@ -27,9 +27,10 @@ def nfa_checker(password):
         print("Password must be at least 8 characters long.")
         
     if has_upper(password) and has_lower(password) and has_digit(password) and has_special(password) and is_long_enough(password):
-        print("Password is valid.")
+        print("Password is valid.\n")
         return True
     else:
+        print("\n")
         return False
     
 
