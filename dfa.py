@@ -35,6 +35,7 @@ def dfa_checker(password):
     else:
         return False
 
+total_time = 0
 
 with open("varied_passwords.txt", "r") as file:
     for line in file:
@@ -46,8 +47,12 @@ with open("varied_passwords.txt", "r") as file:
         end_time = time.perf_counter()
 
         duration_ms = (end_time - start_time) * 1000  # convert to milliseconds
-        
+        total_time += duration_ms
+
         print(f"Password: {password}")
         print(f"Time taken: {duration_ms:.4f} ms")
         print("-" * 30)
         print("\n")
+
+print(f"Total time taken for all passwords: {total_time:.4f} ms")
+print(f"Average time taken per password: {total_time / 100:.4f} ms")
