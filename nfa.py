@@ -1,3 +1,5 @@
+import time
+
 def has_upper(password):
     return any(c.isupper() for c in password)
 
@@ -37,11 +39,24 @@ def nfa_checker(password):
     else:
         return False
     
+total_time = 0
 
 with open("varied_passwords.txt", "r") as file:
     for line in file:
+
         password = line.strip()
+
+        start_time = time.perf_counter()
         nfa_checker(password)
+        end_time = time.perf_counter()
+
+        duration_ms = (end_time - start_time) * 1000  
+        total_time += duration_ms
+
         print(f"Password: {password}")
+        print(f"Time taken: {duration_ms:.4f} ms")
         print("-" * 30)
         print("\n")
+
+print(f"Total time taken for all passwords: {total_time:.4f} ms")
+print(f"Average time taken per password: {total_time / 100:.4f} ms")
