@@ -1,3 +1,5 @@
+import time
+
 def dfa_checker(password):
 
     has_upper = False
@@ -36,8 +38,16 @@ def dfa_checker(password):
 
 with open("varied_passwords.txt", "r") as file:
     for line in file:
+        
         password = line.strip()
+        
+        start_time = time.perf_counter()
         dfa_checker(password)
+        end_time = time.perf_counter()
+
+        duration_ms = (end_time - start_time) * 1000  # convert to milliseconds
+        
         print(f"Password: {password}")
+        print(f"Time taken: {duration_ms:.4f} ms")
         print("-" * 30)
         print("\n")
